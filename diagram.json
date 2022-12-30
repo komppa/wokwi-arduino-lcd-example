@@ -1,0 +1,66 @@
+{
+    "version": 1,
+    "author": "K",
+    "parts": [
+      { "type": "wokwi-arduino-mega", "id": "uno", "top": 208.77, "left": -41.96, "attrs": {} },
+      {
+        "type": "wokwi-membrane-keypad",
+        "id": "keypad",
+        "top": 138,
+        "left": 356.67,
+        "attrs": {
+          "keys": [ "1", "2", "3", "+", "4", "5", "6", "-", "7", "8", "9", "*", ".", "0", "=", "/" ]
+        }
+      },
+      { "type": "wokwi-lcd1602", "id": "lcd", "top": 8, "left": 20, "attrs": {} },
+      { "type": "wokwi-resistor", "id": "r1", "top": 140, "left": 220, "attrs": { "value": "220" } },
+      { "type": "wokwi-slide-switch", "id": "sw1", "top": 96.51, "left": 468.02, "attrs": {} },
+      { "type": "wokwi-slide-switch", "id": "sw2", "top": 97.54, "left": 507.59, "attrs": {} },
+      {
+        "type": "wokwi-led",
+        "id": "led1",
+        "top": 70.78,
+        "left": 352.2,
+        "attrs": { "color": "blue" }
+      },
+      {
+        "type": "wokwi-led",
+        "id": "led2",
+        "top": 73.71,
+        "left": 408.75,
+        "attrs": { "color": "blue" }
+      }
+    ],
+    "connections": [
+      [ "uno:GND.1", "lcd:VSS", "black", [ "v-51", "*", "h0", "v18" ] ],
+      [ "uno:GND.1", "lcd:K", "black", [ "v-51", "*", "h0", "v18" ] ],
+      [ "uno:GND.1", "lcd:RW", "black", [ "v-51", "*", "h0", "v18" ] ],
+      [ "uno:5V", "lcd:VDD", "red", [ "v16", "h-16" ] ],
+      [ "uno:5V", "r1:2", "red", [ "v16", "h-118", "v-244", "h50" ] ],
+      [ "r1:1", "lcd:A", "pink", [] ],
+      [ "uno:12", "lcd:RS", "blue", [ "v-16", "*", "h0", "v20" ] ],
+      [ "uno:11", "lcd:E", "purple", [ "v-20", "*", "h0", "v20" ] ],
+      [ "uno:10", "lcd:D4", "green", [ "v-24", "*", "h0", "v20" ] ],
+      [ "uno:9", "lcd:D5", "brown", [ "v-28", "*", "h0", "v20" ] ],
+      [ "uno:8", "lcd:D6", "gold", [ "v-32", "*", "h0", "v20" ] ],
+      [ "uno:7", "lcd:D7", "gray", [ "v-36", "*", "h0", "v20" ] ],
+      [ "uno:A3", "keypad:C1", "brown", [ "v76", "*", "h0", "v0" ] ],
+      [ "uno:A2", "keypad:C2", "gray", [ "v80", "*", "h0", "v0" ] ],
+      [ "uno:A1", "keypad:C3", "orange", [ "v84", "*", "h0", "v0" ] ],
+      [ "uno:A0", "keypad:C4", "pink", [ "v88", "*", "h0", "v0" ] ],
+      [ "uno:5", "keypad:R1", "blue", [ "v-34", "h96", "*", "v12" ] ],
+      [ "uno:4", "keypad:R2", "green", [ "v-30", "h80", "*", "v16" ] ],
+      [ "uno:3", "keypad:R3", "purple", [ "v-26", "h64", "*", "v20" ] ],
+      [ "uno:2", "keypad:R4", "gold", [ "v-22", "h48", "*", "v24" ] ],
+      [ "uno:GND.3", "sw1:2", "black", [ "v0" ] ],
+      [ "sw1:2", "sw2:2", "black", [ "v0" ] ],
+      [ "sw1:3", "uno:A13", "yellow", [ "v0" ] ],
+      [ "sw2:3", "uno:A14", "green", [ "v0" ] ],
+      [ "led2:C", "led1:C", "black", [ "v0" ] ],
+      [ "led1:C", "uno:GND.2", "black", [ "v0" ] ],
+      [ "led1:A", "uno:22", "yellow", [ "v0" ] ],
+      [ "led2:A", "uno:23", "green", [ "v0" ] ],
+      [ "uno:GND.5", "uno:53", "yellow", [ "v0" ] ]
+    ],
+    "dependencies": {}
+  }
